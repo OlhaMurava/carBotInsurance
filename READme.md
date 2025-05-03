@@ -1,7 +1,7 @@
 Telegram Car Insurance Bot 🤖
 A smart Telegram bot that helps users easily apply for car insurance by uploading their passport and vehicle documents. It uses OCR to extract data and OpenRouter AI to generate the insurance policy.
 
-BOT IS AVAILABLE HERE: telegram - @CarInsuranceBot_bot
+✅✅✅BOT IS AVAILABLE HERE: telegram - @CarInsuranceBot_bot✅✅✅
 
 🛠️ Setup Instructions
 1. Clone the repository

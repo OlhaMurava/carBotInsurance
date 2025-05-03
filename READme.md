@@ -28,9 +28,11 @@ PORT=3000
 4. Run the bot locally
 
 node bot.js
+
 Or deploy it on Render or another cloud platform that supports HTTPS.
 
 📦 Dependencies
+
 node-telegram-bot-api – Telegram bot API wrapper
 
 axios – For making HTTP requests
@@ -45,6 +47,7 @@ mindee - Mindee is used in my bot to automatically extract user information—li
 
 
 🔁 Bot Workflow
+
 /start – Initiates the process and asks the user to upload a passport 📸
 
 User uploads passport – Data is extracted using OCR 🧾

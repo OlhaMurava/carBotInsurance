@@ -4,7 +4,7 @@ A smart Telegram bot that helps users easily apply for car insurance by uploadin
 🛠️ Setup Instructions
 1. Clone the repository
 
-git clone https://github.com/yourusername/telegram-insurance-bot.git
+git clone https://github.com/OlhaMurava/carBotInsurance.git
 cd telegram-insurance-bot
 
 2. Install dependencies

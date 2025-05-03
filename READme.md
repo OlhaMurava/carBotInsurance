@@ -16,9 +16,13 @@ npm install
 Create a .env file in the root folder and add the following:
 
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+
 OPENROUTER_API_KEY=your_openrouter_api_key
+
 RENDER_EXTERNAL_URL=https://your-app-name.onrender.com
+
 PORT=3000
+
 ⚠️ Make sure your bot token and API keys are valid.
 
 4. Run the bot locally

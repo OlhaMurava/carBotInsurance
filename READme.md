@@ -1,56 +1,55 @@
-1. SETUP INSTRUCTIONS & DEPENDENCIES
-This bot is built using Node.js and relies on the following packages:
+Telegram Car Insurance Bot 🤖
+A smart Telegram bot that helps users easily apply for car insurance by uploading their passport and vehicle documents. It uses OCR to extract data and OpenRouter AI to generate the insurance policy.
 
-node-telegram-bot-api for interacting with Telegram's Bot API.
+🛠️ Setup Instructions
+1. Clone the repository
 
-dotenv to manage environment variables securely.
+git clone https://github.com/yourusername/telegram-insurance-bot.git
+cd telegram-insurance-bot
 
-form-data: A module for constructing and sending multipart/form-data HTTP requests, typically used for file uploads.
+2. Install dependencies
 
-mindee: An API client for extracting data from images and documents using Mindee's AI-powered document processing.
+npm install
 
-To run the bot, install dependencies, configure your environment variables (specifically TELEGRAM_BOT_TOKEN and MINDEE_API_KEY), and execute the main script.
+3. Configure environment variables
+Create a .env file in the root folder and add the following:
 
-The bot also depends on a module called mindeeHelper.js, which uses AI to extract information from passport and vehicle document images.
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+OPENROUTER_API_KEY=your_openrouter_api_key
+RENDER_EXTERNAL_URL=https://your-app-name.onrender.com
+PORT=3000
+⚠️ Make sure your bot token and API keys are valid.
 
-2. BOT WORKFLOW
-The bot uses a state-based interaction flow to guide the user through purchasing insurance. Each user has a session state that determines the next expected input.
+4. Run the bot locally
 
-Workflow stages:
+node bot.js
+Or deploy it on Render or another cloud platform that supports HTTPS.
 
-Start: The user sends the /start command. The bot explains the process and asks for a passport photo.
+📦 Dependencies
+node-telegram-bot-api – Telegram bot API wrapper
 
-Passport Upload: The user sends a passport photo. The bot processes it using AI to extract name and date of birth.
+axios – For making HTTP requests
 
-Vehicle Document Upload: The bot asks for a vehicle identification document (VID). It extracts the vehicle number.
+express – Web server for Telegram webhook
 
-Confirmation: The bot presents the extracted information and asks the user to confirm using /confirm.
+body-parser – Middleware for parsing request bodies
 
-Pricing Agreement: The bot shows a fixed insurance price and waits for a response ("yes" or "no").
+dotenv – For loading environment variables
 
-Policy Generation: If confirmed, the bot generates and sends an insurance policy with user-specific details.
+mindee - Mindee is used in my bot to automatically extract user information—like name, birth date, and vehicle ID—from uploaded passport and vehicle document images using OCR.
 
-Retry Option: At any point, the user can restart the process using /retry.
 
-3. AVAILABLE COMMANDS
+🔁 Bot Workflow
+/start – Initiates the process and asks the user to upload a passport 📸
 
-/start – Begins the insurance purchasing process.
+User uploads passport – Data is extracted using OCR 🧾
 
-/help – Lists available commands and their descriptions.
+Bot requests vehicle document – User uploads it 🚗
 
-/retry – Restarts the process, allowing the user to reupload documents.
+/confirm – Bot shows summary and asks for confirmation ✅
 
-/confirm – Confirms the extracted data and proceeds to pricing.
+"yes" – Policy is generated with OpenRouter AI 🧠
 
-4. ERROR HANDLING
-The bot includes built-in error handling for:
+"no" – Bot ends interaction politely ❌
 
-Missing or invalid environment variables (e.g. bot token).
-
-Actions attempted out of sequence (e.g. sending /confirm before completing previous steps).
-
-Duplicate image uploads (passport and vehicle images must be different).
-
-Failures during AI-based document parsing.
-
-General system or API errors, which trigger friendly user-facing error messages.
+/retry – Restarts the flow 🔄
